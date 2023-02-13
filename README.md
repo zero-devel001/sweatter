@@ -1,2 +1,2 @@
 # sweater
-Spring Boot learning
+It is simple clone of Tweatter
