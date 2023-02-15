@@ -34,4 +34,7 @@ public class MessageService {
     public void saveMessage(Message message) {
         messageRepo.save(message);
     }
+    public Iterable<Message> findAll() {
+        return messageRepo.findAll();
+    }
 }

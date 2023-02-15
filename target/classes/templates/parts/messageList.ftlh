@@ -1,6 +1,6 @@
 <#include "security.ftlh">
 <#import "pager.ftlh" as p>
-<@p.pager url page/>
+<@p.pager page url/>
     <div class="card-columns">
 
         <#list page.content as message>
@@ -25,4 +25,4 @@
             No messages
         </#list>
     </div>
-<@p.pager url page/>
+<@p.pager page url/>

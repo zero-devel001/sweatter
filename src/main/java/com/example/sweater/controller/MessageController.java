@@ -68,7 +68,7 @@ public class MessageController {
             @Valid Message message,
             BindingResult bindingResult,
             Model model,
-            @RequestParam String filter,
+            @RequestParam(required = false,defaultValue = "") String filter,
             @PageableDefault(sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable,
             @RequestParam("file") MultipartFile file
     ) throws IOException {
@@ -87,10 +87,8 @@ public class MessageController {
             messageService.saveMessage(message);
         }
 
-        Page<Message> messages = messageService.messagesList(pageable, filter,user);
-
-        model.addAttribute("messages", messages);
-
+        Page<Message> page = messageService.messagesList(pageable,filter,user);
+        model.addAttribute("page",page);
         return "main";
     }
     private void saveFile(@Valid Message message, @RequestParam("file") MultipartFile file) throws IOException {
